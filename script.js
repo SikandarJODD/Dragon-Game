@@ -2,6 +2,13 @@ console.log("Hello");
 let jumpBtn = document.getElementById("denoJump");
 let jumpCount = document.getElementById("scoreCont");
 
+let audioTune = new Audio("./images/sound.mp3");
+window.addEventListener("keydown", () => {
+    audioTune.volume = 0.2;
+    audioTune.play();
+    audioTune.loop = true;
+
+});
 window.addEventListener("keydown", (e) => {
     if (e.key === " ") {
         // jumpBtn.click();
@@ -24,6 +31,7 @@ let fifi = setInterval(() => {
         // alert("Game Over");
         orginalText.innerHTML = "Game Over";
         pathObj.style.animation = "none";
+        audioTune.pause();
     }
 }, 200);
 
